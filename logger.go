@@ -4,6 +4,7 @@ import "github.com/sirupsen/logrus"
 
 type ILogger interface {
 	LogError(message string, err error)
+	LogInfo(message string)
 }
 
 type LogrusLogger struct {
@@ -20,4 +21,8 @@ func (l *LogrusLogger) LogError(message string, err error) {
 	}
 
 	logrus.Error(message, err.Error())
+}
+
+func (l *LogrusLogger) LogInfo(message string) {
+	logrus.Info(message)
 }

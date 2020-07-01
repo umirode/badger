@@ -51,6 +51,8 @@ func getSerializedResponseByRequest(serializedResponseStorage storage.ISerialize
 }
 
 func getServerHandler(serializedResponseStorage storage.ISerializedResponseStorage, logger ILogger) http.HandlerFunc {
+	logger.LogInfo("proxy started")
+
 	return func(writer http.ResponseWriter, request *http.Request) {
 		defer request.Body.Close()
 
