@@ -23,7 +23,7 @@ func getCacheExpirationTime() (time.Duration, error) {
 
 	cacheExpirationTime, err := strconv.Atoi(cacheExpirationTimeString)
 	if err != nil {
-		return 0, errors.New("invalid " + envKey + " value: " + cacheExpirationTimeString)
+		return cache.NoExpiration, errors.New("invalid " + envKey + " value: " + cacheExpirationTimeString)
 	}
 
 	return time.Duration(cacheExpirationTime) * time.Second, nil
