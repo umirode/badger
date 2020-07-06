@@ -1,11 +1,6 @@
-package main
+package logger
 
 import "github.com/sirupsen/logrus"
-
-type ILogger interface {
-	LogError(message string, err error)
-	LogInfo(message string)
-}
 
 type LogrusLogger struct {
 }

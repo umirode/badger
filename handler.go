@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"github.com/umirode/api-cache-proxy/logger"
 	r "github.com/umirode/api-cache-proxy/request"
 	"github.com/umirode/api-cache-proxy/response"
 	"github.com/umirode/api-cache-proxy/storage"
@@ -50,7 +51,7 @@ func getSerializedResponseByRequest(serializedResponseStorage storage.ISerialize
 	return serializedResponse, nil
 }
 
-func getServerHandler(serializedResponseStorage storage.ISerializedResponseStorage, logger ILogger) http.HandlerFunc {
+func getServerHandler(serializedResponseStorage storage.ISerializedResponseStorage, logger logger.ILogger) http.HandlerFunc {
 	logger.LogInfo("proxy started")
 
 	return func(writer http.ResponseWriter, request *http.Request) {
