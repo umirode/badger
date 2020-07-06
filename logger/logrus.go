@@ -15,7 +15,7 @@ func (l *LogrusLogger) LogError(message string, err error) {
 		return
 	}
 
-	logrus.Error(message, err.Error())
+	logrus.Error(message+" ", err.Error())
 }
 
 func (l *LogrusLogger) LogInfo(message string) {
