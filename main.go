@@ -21,6 +21,9 @@ func getProxyPort() (int, error) {
 	if err != nil {
 		return 0, errors.New("invalid " + envKey + " value: " + proxyPortString)
 	}
+	if (proxyPort < 1) || (proxyPort > 0xFFFF) {
+		return 0, errors.New("invalid proxy port " + strconv.Itoa(proxyPort))
+	}
 
 	return proxyPort, nil
 }
