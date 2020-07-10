@@ -19,6 +19,7 @@ COPY . .
 
 RUN go build -ldflags '-w -s -extldflags "-static"' -o /app/bin .
 
+
 FROM scratch
 
 COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
